@@ -14,18 +14,18 @@ git config --global user.email ankitrokdeonsns@gmail.com
 git config --global color.ui true
 git config --global core.editor "/usr/bin/vim"
 
-cd $HOME
 DOTFILES_DIR=$HOME/dotfiles
 if [ ! -d "$DOTFILES_DIR" ]; then
+    cd $HOME
 	git clone https://github.com/ankitrokdeonsns/dotfiles.git
     $DOTFILES_DIR/script.sh
     cd $DOTFILES_DIR
     git submodule update --init
 fi
 
-cd $HOME
 PROVISIONERS_DIR=$HOME/provisioners
 if [ ! -d "$PROVISIONERS_DIR" ]; then
+    cd $HOME
 	git clone https://github.com/ankitrokdeonsns/provisioners.git
 fi
 
@@ -33,9 +33,9 @@ PACKAGES_DIR=$HOME/packages
 mkdir -p $PACKAGES_DIR
 mkdir -p $HOME/work $HOME/tmp
 
-cd $PACKAGES_DIR
 SOLARIZED_TERM_DIR=$PACKAGES_DIR/xfce4-terminal-colors-solarized
 if [ ! -d "$SOLARIZED_TERM_DIR" ]; then
+    cd $PACKAGES_DIR
     git clone https://github.com/sgerrand/xfce4-terminal-colors-solarized.git
 fi
 XFCE_TERM_CONF_DIR=$HOME/.config/xfce4/terminal
