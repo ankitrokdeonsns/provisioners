@@ -50,3 +50,17 @@ if [ ! -d "$SOLARIZED_TERM_DIR" ]; then
     curl -O "https://raw.github.com/altercation/solarized/master/iterm2-colors-solarized/Solarized%20Light.itermcolors"
     curl -O "https://raw.github.com/altercation/solarized/master/iterm2-colors-solarized/Solarized%20Dark.itermcolors"
 fi
+
+if ! exists pip; then
+    sudo easy_install pip
+fi
+
+if ! exists nvpy; then
+    sudo pip install nvpy
+fi
+NVPY_CFG_FILE=$HOME/.nvpy.cfg
+if [ ! -f $NVPY_CFG_FILE ]; then
+    echo "[nvpy]" > $NVPY_CFG_FILE
+    echo "sn_username = " >> $NVPY_CFG_FILE
+    echo "sn_password = " >> $NVPY_CFG_FILE
+fi
