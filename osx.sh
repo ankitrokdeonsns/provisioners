@@ -23,6 +23,8 @@ git config --global user.email ankitrokdeonsns@gmail.com
 git config --global color.ui true
 git config --global core.editor "/usr/bin/vim"
 
+echo "export PATH=/usr/local/bin:$PATH" >> $HOME/aliases
+
 DOTFILES_DIR=$HOME/dotfiles
 if [ ! -d "$DOTFILES_DIR" ]; then
     cd $HOME
@@ -63,4 +65,8 @@ if [ ! -f $NVPY_CFG_FILE ]; then
     echo "[nvpy]" > $NVPY_CFG_FILE
     echo "sn_username = " >> $NVPY_CFG_FILE
     echo "sn_password = " >> $NVPY_CFG_FILE
+fi
+
+if ! exists ag; then
+    brew install ag
 fi
